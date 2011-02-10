@@ -1,0 +1,16 @@
+User(Alexis):
+    email: alexis.paris@ctg.com
+    password: secret
+    fullname: Alexis Paris
+User(Herve):
+    email: herve.roussel@ctg.com
+    password: secret
+    fullname: Herve Roussel
+User(Jean-Christophe):
+    email: jean-christophe.bernier@ctg.com
+    password: secret
+    fullname: Jean-Christophe Bernier
+User(Thomas):
+    email: thomas.henrion@ctg.com
+    password: secret
+    fullname: Thomas Henrion
