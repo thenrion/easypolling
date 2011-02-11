@@ -18,3 +18,7 @@ User(Johann):
     email: johann.bernez@ctg.com
     password: secret
     fullname: Johann Bernez	
+User(David):
+    email: david.renoux@ctg.com
+    password: secret
+    fullname: David Renoux
