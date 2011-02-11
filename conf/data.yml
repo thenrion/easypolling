@@ -14,3 +14,7 @@ User(Thomas):
     email: thomas.henrion@ctg.com
     password: secret
     fullname: Thomas Henrion
+User(Johann):
+    email: johann.bernez@ctg.com
+    password: secret
+    fullname: Johann Bernez	
