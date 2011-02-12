@@ -1,4 +1,37 @@
-#{extends 'main.html' /}
-#{set title:'Home' /}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>index.htm</title>
+</head>
+<body  id="index">
 
-#{welcome /}
+<form name="authentication" method="GET" action="polls">
+<table
+	style="margin-left: auto; margin-right: auto; width: 890px;">
+	<tr>
+		<td colspan="2" class="header">Login</td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="subscribe">Create an account</a></td>
+	</tr>
+
+	<tr>
+		<td>Name:</td>
+		<td><input type="text" name="login" /></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="password" name="password" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: center"><input type="submit"
+			name="signin" value="Sign in" /></td>
+	</tr>
+</table>
+</form>
+
+
+</body>
+</html>
