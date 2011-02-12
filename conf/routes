@@ -2,15 +2,18 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Import Secure routes
+*       /                                       module:secure
+
 # Home page
 GET     /                                       Application.index
-GET     /subscribe                                       Application.subscribe
-POST     /subscribe                                       Application.subscribe
+GET     /subscribe                              Application.subscribe
+POST     /subscribe                             Application.subscribe
 
-GET     /polls                                       Application.polls
-GET     /createpoll                                       Application.createpoll
-POST     /createpoll                                       Application.createpoll
-POST     /vote                                       Application.vote
+GET     /polls                                  Application.polls
+GET     /createpoll                             Manage.index
+POST     /createpoll                            Manage.index
+POST     /vote                                  Vote.index
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

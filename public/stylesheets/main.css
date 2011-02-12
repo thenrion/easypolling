@@ -1,3 +1,14 @@
 body{
 	background-color: #D1EDCE;
 }
+.banner{
+	text-align: right;
+}
+.header{
+	text-align: center;
+	font-size: 1.5em;
+}
+.polling tr:first-child{
+	text-align: left;
+	
+}

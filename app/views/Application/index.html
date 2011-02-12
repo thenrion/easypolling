@@ -1,37 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>index.htm</title>
-</head>
-<body  id="index">
+#{extends 'main.html' /}
+#{set title:'Pollings' /}
 
-<form name="authentication" method="GET" action="polls">
-<table
-	style="margin-left: auto; margin-right: auto; width: 890px;">
-	<tr>
-		<td colspan="2" class="header">Login</td>
-	</tr>
-	<tr>
-		<td colspan="2"><a href="subscribe">Create an account</a></td>
-	</tr>
+<table>
 
 	<tr>
-		<td>Name:</td>
-		<td><input type="text" name="login" /></td>
-	</tr>
-	<tr>
-		<td>Password:</td>
-		<td><input type="password" name="password" /></td>
-	</tr>
-	<tr>
-		<td colspan="2" style="text-align: center"><input type="submit"
-			name="signin" value="Sign in" /></td>
+		<td>
+		<table style="width: 100%;">
+			<tr>
+				<td colspan="2"><a href="createpoll">Create new poll</a></td>
+			</tr>
+			<tr>
+				<td style="width: 20%">
+				<div style="border: 1px solid blue">Polls<br />
+				<ul>
+					<li><a href="/?poll=2453">Poll 1</a></li>
+					<li><a href="/?poll=1543">Poll 2</a></li>
+					<li><a href="/?poll=5362">Poll 3</a></li>
+					<li><a href="/?poll=6352">Poll 4</a></li>
+					<li><a href="/?poll=8546">Poll 5</a></li>
+					<li><a href="/?poll=7859">Poll 6</a></li>
+					<li>...</li>
+				</ul>
+				</div>
+				</td>
+				<td style="width: 80%">
+				<form method="post" action="vote">
+				<table class="polling">
+					<tr class="header">
+						<td colspan="2">Polling 1</td>
+					</tr>
+					<tr class="question">
+						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Cras vel lectus sit amet purus varius suscipit. Sed volutpat odio
+						vel ante venenatis imperdiet. Proin magna dolor, condimentum nec
+						tempus id, ullamcorper sit amet nibh. Morbi vestibulum ultricies
+						nisl, id condimentum metus eleifend vel. Duis eget libero eu leo
+						suscipit hendrerit?</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="0" /> Neque
+						porro quisquam est qui dolorem ipsum quia dolor sit amet,
+						consectetur, adipisci velit</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="1" />
+						Suspendisse potenti. Phasellus laoreet, sapien.</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="2" /> Sed ut
+						ligula non risus imperdiet accumsan vel in leo.</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="3" /> Morbi
+						at nisl in est consectetur pulvinar eget at tellus.</td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Validate" name="validate"/></td>
+					</tr>
+				</table>
+				</form>
+				</td>
+			</tr>
+		</table>
+		<br />
+		</td>
 	</tr>
 </table>
-</form>
-
-
-</body>
-</html>

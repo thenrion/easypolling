@@ -9,7 +9,16 @@
         <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
     </head>
     <body>
-        #{doLayout /}
-        
+		<div style="margin-left: auto; margin-right: auto; width: 890px;">
+			<div class="banner">
+				#{if user}
+					<a href="@{Secure.logout()}" class="logout" >Log out</a>
+				#{/if}
+		        #{if !user}
+					<a href="/subscribe" class="logout" >Subscribe</a> | <a href="@{Secure.login()}" class="logout" >Log in</a>
+				#{/if}
+	        </div>
+			#{doLayout /}
+		</div>	
     </body>
 </html>

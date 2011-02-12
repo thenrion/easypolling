@@ -1,12 +1,9 @@
 package controllers;
 
 import models.User;
-import play.mvc.Before;
-import play.mvc.Controller;
-import play.mvc.With;
-
-
-public class Application extends Controller {
+import play.mvc.*;
+@With(Secure.class)
+public class Manage extends Controller {
 
 	@Before
 	public static void init(){
@@ -17,20 +14,11 @@ public class Application extends Controller {
 	}
 	
     public static void index() {
-        
-		render();
+        render();
+    }
+    
+    public static void createPoll(){
+    	render();
     }
 
-    public static void polls() {
-        render();
-    }
-    
-    public static void subscribe() {
-        render();
-    }
-    
-    public static void createpoll() {
-        render();
-    }
-    
 }
