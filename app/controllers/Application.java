@@ -1,11 +1,6 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-
-import java.util.*;
-
-import models.*;
+import play.mvc.Controller;
 
 public class Application extends Controller {
 
@@ -13,4 +8,19 @@ public class Application extends Controller {
         render();
     }
 
+    public static void polls() {
+        render();
+    }
+    
+    public static void subscribe() {
+        render();
+    }
+    
+    public static void createpoll() {
+        render();
+    }
+    
+    public static void vote() {
+        render();
+    }
 }
