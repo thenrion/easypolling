@@ -14,7 +14,7 @@ public class Bootstrap extends Job {
         }
 
         // To inspect the in memory database
-        org.hsqldb.util.DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:playembed", "--noexit" });
+        //org.hsqldb.util.DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:playembed", "--noexit" });
     }
  
 }
