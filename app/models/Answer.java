@@ -27,8 +27,8 @@ public class Answer extends Model {
 
     public Date dateModification;
 
-    @OneToMany(mappedBy = "proposition", cascade = CascadeType.ALL)
-    public List<Answer> answers;
+//    @OneToMany(mappedBy = "proposition", cascade = CascadeType.ALL)
+//    public List<Answer> answers;
 
 
     public Answer(User polled, Proposition proposition, Poll poll, Boolean selected, Date dateCreation, Date dateModification) {

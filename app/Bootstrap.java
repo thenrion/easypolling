@@ -12,6 +12,9 @@ public class Bootstrap extends Job {
         if(User.count() == 0) {
             Fixtures.load("data.yml");
         }
+
+        // To inspect the in memory database
+        org.hsqldb.util.DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:playembed", "--noexit" });
     }
  
 }
