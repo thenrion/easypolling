@@ -11,13 +11,22 @@
     <body>
 		<div style="margin-left: auto; margin-right: auto; width: 890px;">
 			<div class="banner">
-				#{if user}
+				#{if connected}
 					<a href="@{Secure.logout()}" class="logout" >Log out</a>
 				#{/if}
-		        #{if !user}
-					<a href="/subscribe" class="logout" >Subscribe</a> | <a href="@{Secure.login()}" class="logout" >Log in</a>
-				#{/if}
+		        #{else}
+					<a href="@{Application.subscribe}" class="logout" >Subscribe</a> | <a href="@{Secure.login()}" class="logout" >Log in</a>
+				#{/else}
 	        </div>
+			<div id="content">
+				#{if flash?.error}
+					<div class="error">${flash.error}</div>
+				#{/if}
+
+				#{if flash?.success}
+					<div class="success">${flash.success}</div>
+				#{/if}
+			</div>
 			#{doLayout /}
 		</div>	
     </body>

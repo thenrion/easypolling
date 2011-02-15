@@ -1,36 +1,34 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
-<form name="authentication" method="post" action="subscribe">
-<table
-	style="margin-left: auto; margin-right: auto; width: 890px;">
-	<tr  class="header">
-		<td colspan="2">Create an Account </td>
-	</tr>
-	
 
-	<tr>
-		<td>E-mail:</td>
-		<td><input type="text" name="email" /></td>
-	</tr>
-	<tr>
-		<td>Password:</td>
-		<td><input type="input" name="password" /></td>
-	</tr>
-	<tr>
-		<td>Re-enter password:</td>
-		<td><input type="input" name="passwordConfirm" /></td>
-	</tr>
-	<tr>
-		<td>Check:</td>
-		<td><img width="200px" height="50px" src="/public/images/Captcha.jpg"></td>
-	</tr>
-	<tr>
-		<td>Type here characters which you see above</td>
-		<td><input type="text" name="capcha" /></td>
-	</tr>
-	<tr>
-		<td colspan="2" style="text-align: center"><input type="submit"
-			name="create" value="Create Account" /></td>
-	</tr>
-</table>
+<h1 id="title">Signup</h1>
+<p class="light">
+	We will send you an email for confirmation
+</p>
+
+<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8">
+	<p>
+		<label>Email</label>
+		<input type="text" name="email" value="${flash.email}" id="email" />
+		<span class="error">#{error 'email' /}</span>
+	</p>
+	<p>
+		<label>Display name</label>
+		<input type="text" name="fullname" value="${flash.fullname}" id="fullname" />
+		<span class="error">#{error 'fullname' /}
+	</p>
+	<p>
+		<label>Password</label>
+		<p class="light">
+			Enter your desired password twice. It must be at least 5 characters.
+		</p>
+		<div>
+			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
+		</div>
+		<div>
+			<input type="password" name="password2" value="${flash.password2}" id="password2" /> <span class="error">#{error 'password2' /}</span>
+		</div>
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Signup" id="signupButton" />
+	</p>	
 </form>

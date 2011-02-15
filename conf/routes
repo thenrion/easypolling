@@ -2,13 +2,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Import Secure routes
-*       /                                       module:secure
+# Registration/Authentication
+GET		/subscribe														Application.subscribe
+POST	/subscribe														Application.register
+GET		/login															Secure.login
+POST	/login															Application.authenticate
+GET		/subscribe/{uuid}												Application.confirmRegistration
 
 # Home page
 GET     /                                       Application.index
-GET     /subscribe                              Application.subscribe
-POST     /subscribe                             Application.subscribe
 
 GET     /polls                                  Application.polls
 GET     /createpoll                             Manage.index
