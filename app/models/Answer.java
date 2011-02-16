@@ -6,7 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -36,5 +36,14 @@ public class Answer extends Model {
         this.dateCreation = dateCreation;
         this.dateModification = dateModification;
     }
+
+    /** retrieve all answers corresponding to the given poll
+     * @param poll a Poll
+     * @return a Collection of Answer
+     */
+	public static List<Answer> findAnswersOfPoll(Poll poll)
+	{
+        return Answer.find("poll = ? and selected = ?", poll, Boolean.TRUE).fetch();
+	}
 
 }

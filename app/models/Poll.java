@@ -7,7 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,6 +20,9 @@ public class Poll extends Model {
     public Boolean multipleChoice;
 
     public Date dateCreation;
+
+    /** date d'expiration si spécifié */
+    public Date dateExpiration;
 
     @ManyToOne
     public User author;
@@ -40,4 +43,13 @@ public class Poll extends Model {
         this.author = author;
         this.comment = comment;
     }
+
+    /** retrieve the recent poll considering the date of creation
+     * @param numberOfPoll the number of poll to retrieve
+     * @return a List of Poll
+     */
+	public static List<Poll> findRecentPolls(int numberOfPoll)
+	{
+	    return Poll.find("order by dateCreation desc").fetch(numberOfPoll);
+	}
 }

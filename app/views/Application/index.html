@@ -11,15 +11,16 @@
 			</tr>
 			<tr>
 				<td style="width: 20%">
-				<div style="border: 1px solid blue">Polls<br />
+				<div style="border: 1px solid blue">&{'polls.recent.label'}<br />
 				<ul>
-					<li><a href="/?poll=2453">Poll 1</a></li>
-					<li><a href="/?poll=1543">Poll 2</a></li>
-					<li><a href="/?poll=5362">Poll 3</a></li>
-					<li><a href="/?poll=6352">Poll 4</a></li>
-					<li><a href="/?poll=8546">Poll 5</a></li>
-					<li><a href="/?poll=7859">Poll 6</a></li>
-					<li>...</li>
+                    #{list items:polls, as:'poll'}
+                        <li><a href="/?poll=2453">${poll.question}</a><br/>
+                            <a class="chart-link" href="@{Application.showChart(poll.id)}">&{'poll.chart.show.label'}</a></li>
+                    #{/list}
+
+                    #{if polls && polls.size() != totalPollCount}
+                        <li><a href="#" onclick="alert('Provoque l affichage de tous les sondages??')">...</a></li>
+                    #{/if}
 				</ul>
 				</div>
 				</td>

@@ -1,0 +1,9 @@
+#{extends 'main.html' /}
+#{set title:'Chart display' /}
+
+#{if chartUrl}
+    <img src="&{chartUrl}"></img>
+#{/if}
+#{else}
+    No answer for this poll
+#{/else}

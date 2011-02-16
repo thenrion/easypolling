@@ -5,7 +5,7 @@ import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
