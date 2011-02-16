@@ -6,3 +6,4 @@ secure.password=Votre password:
 secure.signin=S'identifier
 polls.recent.label= Sondages récents
 poll.chart.show.label= Résultats
+poll.chart.noanswer.label=Il n'existe pas de vote pour ce sondage
