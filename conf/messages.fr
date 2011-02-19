@@ -1,0 +1,9 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+secure.username=Votre email:
+secure.password=Votre password:
+secure.signin=S'identifier
+polls.recent.label= Sondages récents
+poll.chart.show.label= Résultats
+poll.chart.noanswer.label=Il n'existe pas de vote pour ce sondage

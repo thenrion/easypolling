@@ -4,3 +4,6 @@
 secure.username=Your email:
 secure.password=Your password:
 secure.signin=Log in now
+polls.recent.label=Recent polls
+poll.chart.show.label=Chart
+poll.chart.noanswer.label=No answer for this poll

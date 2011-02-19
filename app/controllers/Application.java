@@ -1,5 +1,8 @@
 package controllers;
 
+import com.ctg.easypolling.chart.ChartProvider;
+import com.ctg.easypolling.chart.ChartProviderFactory;
+import models.Poll;
 import models.User;
 import notifiers.Notifier;
 import play.Logger;
@@ -13,9 +16,14 @@ import play.mvc.With;
 
 import java.util.Map;
 import java.util.Set;
+import java.net.URL;
+import java.util.List;
 
 
 public class Application extends Controller {
+
+    /** count of recent polls displayed */
+    private static final int RECENT_POLLS_DISPLAYED_COUNT = 3;
 
 	@Before
 	public static void init(){
@@ -25,9 +33,24 @@ public class Application extends Controller {
         }
 	}
 	
-    public static void index() {
-        
-		render();
+    public static void index()
+    {
+        List<Poll> polls = Poll.findRecentPolls(RECENT_POLLS_DISPLAYED_COUNT);
+
+        long totalPollCount = Poll.count();
+
+		render(polls, totalPollCount);
+    }
+
+    public static void showChart(long pollId)
+    {
+
+        ChartProviderFactory factory = new ChartProviderFactory();
+        ChartProvider chartProvider = factory.createProvider();
+
+        URL chartUrl = chartProvider.createChart(Poll.<Poll>findById(pollId));
+
+        render(chartUrl);
     }
 
     public static void polls() {

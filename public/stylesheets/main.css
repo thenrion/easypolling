@@ -12,3 +12,10 @@ body{
 	text-align: left;
 	
 }
+
+.chart-link
+{
+    margin-left: 15px;
+    font-size: 0.8em;
+    color: #505050
+}

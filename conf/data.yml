@@ -22,3 +22,104 @@ User(David):
     email: david.renoux@ctg.com
     password: secret
     fullname: David Renoux
+
+Poll(Poll_color):
+    question: What is your favorite color?
+    multipleChoice: false
+    author: Alexis
+    dateCreation: 2011-02-10 00:00:00
+    dateExpiration:
+    comment: commentaire inutile
+Proposition(Poll_color_blue):
+    value: blue
+    dateCreation:
+    poll: Poll_color
+Proposition(Poll_color_red):
+    value: red
+    dateCreation:
+    poll: Poll_color
+Proposition(Poll_color_yellow):
+    value: yellow
+    dateCreation:
+    poll: Poll_color
+Answer(Poll_color_ans1):
+    polled: Alexis
+    proposition: Poll_color_red
+    poll: Poll_color
+    selected: true
+Answer(Poll_color_ans2):
+    polled: David
+    proposition: Poll_color_red
+    poll: Poll_color
+    selected: true
+Answer(Poll_color_ans3):
+    polled: Thomas
+    proposition: Poll_color_blue
+    poll: Poll_color
+    selected: true
+Answer(Poll_color_ans4):
+    polled: Herve
+    proposition: Poll_color_blue
+    poll: Poll_color
+    selected: false
+Answer(Poll_color_ans5):
+    polled: Johann
+    proposition: Poll_color_yellow
+    poll: Poll_color
+    selected: true
+
+Poll(Poll_prog_languages):
+    question: What is your favorite programmation language?
+    multipleChoice: false
+    author: Herve
+    dateCreation: 2011-02-14 00:00:00
+    dateExpiration:
+    comment: tout sauf cobol
+Proposition(Poll_prog_languages_java):
+    value: Java
+    dateCreation:
+    poll: Poll_prog_languages
+Proposition(Poll_prog_languages_ruby):
+    value: Ruby
+    dateCreation:
+    poll: Poll_prog_languages
+Proposition(Poll_prog_languages_groovy):
+    value: Groovy
+    dateCreation:
+    poll: Poll_prog_languages
+
+Poll(Poll_car):
+    question: What is your favorite car?
+    multipleChoice: false
+    author: Alexis
+    dateCreation: 2011-02-09 00:00:00
+    dateExpiration:
+    comment: commentaire inutile
+Proposition(Poll_car_audi):
+    value: Audi
+    dateCreation:
+    poll: Poll_car
+Proposition(Poll_car_vw):
+    value: Volkswagen
+    dateCreation:
+    poll: Poll_car
+
+Poll(Poll_film):
+    question: What is your favorite horror film?
+    multipleChoice: false
+    author: Jean-Christophe
+    dateCreation: 2011-02-08 00:00:00
+    dateExpiration:
+    comment: commentaire inutile
+Proposition(Poll_film_scream):
+    value: Scream
+    dateCreation:
+    poll: Poll_film
+Proposition(Poll_film_freddy):
+    value: Freddy
+    dateCreation:
+    poll: Poll_film
+Proposition(Poll_film_chucky):
+    value: Chucky
+    dateCreation:
+    poll: Poll_film
