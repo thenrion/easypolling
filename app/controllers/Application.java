@@ -25,13 +25,12 @@ public class Application extends Controller {
     /** count of recent polls displayed */
     private static final int RECENT_POLLS_DISPLAYED_COUNT = 3;
 
-	@Before
-	public static void init(){
-		if(Security.isConnected()) {
-			User user = User.find("byEmail", Security.connected()).first();
-            renderArgs.put("user", user.fullname);
-        }
-	}
+        // ~~~~~~~~~~~~ @Before interceptors
+
+    @Before
+    static void globals() {
+        renderArgs.put("connected", connectedUser());
+    }
 	
     public static void index()
     {
@@ -68,26 +67,26 @@ public class Application extends Controller {
         render();
     }
     
-    public static void subscribe() {
-        System.out.println("in subscribe");
+    public static void createpoll() {
         render();
     }
 
-    public static void register(@Required @Email String email, @Required @MinSize(5) String password, @Equals("password") String password2, @Required String fullname) {
-        System.out.println("in register");
+    public static void showPoll(Long id) {
+        Poll poll = Poll.findById(id);
+    }
+
+    public static void signup() {
+        render();
+    }
+
+    public static void register(@Required @Email String email, @Required @MinSize(5) String password, @Equals("password") String password2, @Required String name) {
         if (validation.hasErrors()) {
             validation.keep();
             params.flash();
             flash.error("Please correct these errors !");
-            Map map =  validation.errorsMap();
-            Set set = map.entrySet();
-            for(Object obj:set){
-             System.out.println(obj);
-            }
-            subscribe();
+            signup();
         }
-        User user = new User(email, password, fullname).save();
-        System.out.println(user.toString());
+        User user = new User(email, password, name).save();
         try {
             if (Notifier.welcome(user)) {
                 flash.success("Your account is created. Please check your emails ...");
@@ -100,32 +99,68 @@ public class Application extends Controller {
         login();
     }
 
+    public static void login() {
+        render();
+    }
+
     public static void confirmRegistration(String uuid) {
         User user = User.findByRegistrationUUID(uuid);
         notFoundIfNull(user);
         user.needConfirmation = null;
         user.save();
         flash.success("Welcome %s !", user.fullname);
+        login();
+    }
+
+    public static void authenticate(String email, String password) {
+        User user = User.findByEmail(email);
+        if (user == null || !user.checkPassword(password)) {
+            flash.error("Bad email or bad password");
+            flash.put("email", email);
+            login();
+        } else if (user.needConfirmation != null) {
+            flash.error("This account is not confirmed");
+            flash.put("notconfirmed", user.needConfirmation);
+            flash.put("email", email);
+            login();
+        }
+        connect(user);
+        flash.success("Welcome back %s !", user.fullname);
         index();
     }
 
-    public static void login() {
-        System.out.println("in login");
+    public static void logout() {
+        flash.success("You've been logged out");
+        session.clear();
+        index();
+    }
+
+    public static void resendConfirmation(String uuid) {
+        User user = User.findByRegistrationUUID(uuid);
+        notFoundIfNull(user);
         try {
-            Secure.login();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            if (Notifier.welcome(user)) {
+                flash.success("Please check your emails ...");
+                flash.put("email", user.email);
+                login();
+            }
+        } catch (Exception e) {
+            Logger.error(e, "Mail error");
         }
+        flash.error("Oops (the email cannot be sent)...");
+        flash.put("email", user.email);
+        login();
     }
-    
-    public static void createpoll() {
-        render();
+
+    // ~~~~~~~~~~~~ Some utils
+
+    static void connect(User user) {
+        session.put("logged", user.id);
     }
 
-    public static void showPoll(Long id) {
-        Poll poll = Poll.findById(id);
-
-
+    static User connectedUser() {
+        String userId = session.get("logged");
+        return userId == null ? null : (User) User.findById(Long.parseLong(userId));
     }
     
 }

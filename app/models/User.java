@@ -15,7 +15,7 @@ public class User extends Model {
     public String email;
     
     @Required
-    public String password;
+    public String passwordHash;
     
     @Required
     public String fullname;
@@ -25,25 +25,21 @@ public class User extends Model {
     
     public User(String email, String password, String fullname) {
         this.email = email;
-        this.password = Codec.hexMD5(password);
+        this.passwordHash = Codec.hexMD5(password);
         this.fullname = fullname;
         this.needConfirmation = Codec.UUID();
     }
-    
-    public boolean checkPassword(String password) {
-        return password.equals(Codec.hexMD5(password));
+
+    public static User findByEmail(String email) {
+        return find("email", email).first();
     }
 
-    public static User connect(String email, String password) {
-        return find("byEmailAndPassword", email, password).first();
+    public boolean checkPassword(String password) {
+        return passwordHash.equals(Codec.hexMD5(password));
     }
 
     public static User findByRegistrationUUID(String uuid) {
         return find("needConfirmation", uuid).first();
-    }
-    
-    public String toString() {
-        return email;
     }
  
 }
