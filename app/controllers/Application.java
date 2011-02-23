@@ -31,8 +31,19 @@ public class Application extends Controller {
 
         long totalPollCount = Poll.count();
 
-		render(polls, totalPollCount);
+        Poll selectedPoll = polls.get(0);
+
+		render(polls, totalPollCount, selectedPoll);
     }
+
+    public static void showDetailedPoll(long id)
+    {
+
+        Poll poll = Poll.findById(id);
+        System.out.println(poll);
+		render(poll);
+    }
+
 
     public static void showChart(long pollId)
     {
@@ -55,6 +66,12 @@ public class Application extends Controller {
     
     public static void createpoll() {
         render();
+    }
+
+    public static void showPoll(Long id) {
+        Poll poll = Poll.findById(id);
+
+
     }
     
 }

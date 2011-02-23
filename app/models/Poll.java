@@ -14,6 +14,9 @@ import java.util.List;
 public class Poll extends Model {
 
     @Required
+    public String title;
+
+    @Required
     public String question;
 
     @Required
@@ -36,7 +39,8 @@ public class Poll extends Model {
     public List<Answer> answers;
 
 
-    public Poll(String question, Boolean multipleChoice, Date dateCreation, User author, String comment) {
+    public Poll(String title, String question, Boolean multipleChoice, Date dateCreation, User author, String comment) {
+        this.title = title;
         this.question = question;
         this.multipleChoice = multipleChoice;
         this.dateCreation = dateCreation;

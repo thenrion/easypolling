@@ -7,6 +7,8 @@
 
 # Home page
 GET     /                                       Application.index
+#GET     /{id}                                   Application.index
+GET     /detailedPoll                           Application.showDetailedPoll
 GET     /subscribe                              Application.subscribe
 POST     /subscribe                             Application.subscribe
 
@@ -15,8 +17,12 @@ GET     /createpoll                             Manage.index
 POST     /createpoll                            Manage.index
 POST     /vote                                  Vote.index
 
+GET     /recentPolls                            Application.recentPolls
+
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+

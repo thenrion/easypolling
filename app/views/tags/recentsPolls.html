@@ -1,0 +1,6 @@
+*{ Display a poll in one of these modes: 'full', 'home' or 'teaser' }*
+
+
+        #{list items:_polls, as:'poll'}
+            #{displayPoll poll:poll, as:'teaser' /}
+        #{/list}
