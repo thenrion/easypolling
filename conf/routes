@@ -11,14 +11,19 @@ GET		/subscribe/{uuid}												Application.confirmRegistration
 
 # Home page
 GET     /                                       Application.index
+GET     /detailedPoll                           Application.showDetailedPoll
 
 GET     /polls                                  Application.polls
 GET     /createpoll                             Manage.index
 POST     /createpoll                            Manage.index
 POST     /vote                                  Vote.index
 
+GET     /recentPolls                            Application.recentPolls
+
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+

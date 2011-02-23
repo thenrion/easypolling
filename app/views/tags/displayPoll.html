@@ -1,0 +1,81 @@
+*{ Display a poll in one of these modes: 'full', 'home' or 'teaser' }*
+
+
+<div class="polls">
+<div class="poll ${_as == 'teaser' ? 'teaser' : ''}">
+    <h2 class="poll-title">
+        <a href="@{Application.showDetailedPoll(_poll.id)}" onclick="printText()">${_poll.title}</a>
+
+    </h2>
+
+
+    <input type="submit"  value="Details" id="show${_poll.id}" />
+
+
+    <div class="poll-metadata">
+        <span class="poll-author">by ${_poll.author}</span>,
+        <span class="poll-date">${_poll.dateCreation.format('dd MMM yy')}</span>
+        <a class="chart-link" href="@{Application.showChart(_poll.id)}">&{'poll.chart.show.label'}</a>
+        #{if _as != 'full'}
+            <span class="poll-comments">
+
+            </span>
+        #{/if}
+    </div>
+
+        <div class="poll-content" style="display:none;" with="90%" id="detail${_poll.id}">
+
+
+            <li>
+            ${_poll.question}
+                </li>
+            <div class="about">Detail: </div>
+
+            <form action="createpoll" method="post">
+                  <table class="polling">
+
+                   <tr>
+						<td><input type="checkbox" name="rep_id" value="0" /> Neque
+						porro quisquam est qui dolorem ipsum quia dolor sit amet,
+						consectetur, adipisci velit</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="1" />
+						Suspendisse potenti. Phasellus laoreet, sapien.</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="2" /> Sed ut
+						ligula non risus imperdiet accumsan vel in leo.</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="rep_id" value="3" /> Morbi
+						at nisl in est consectetur pulvinar eget at tellus.</td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Validate" name="validate"/></td>
+					</tr>
+                  </table>
+                </form>
+
+
+        </div>
+     #{if _as != 'teaser'}
+    #{/if}
+</div>
+</div>
+
+ <script type="text/javascript" charset="utf-8">
+
+
+ $(function() {
+        $('#show${_poll.id}').click( function() {
+            if ($('#detail${_poll.id}').css("display")!='none') {
+                $('#detail${_poll.id}').fadeOut("normal"); //hide
+            } else {
+                $('#detail${_poll.id}').fadeTo("normal",1);     //show
+            }
+        });
+  });
+
+
+ </script>

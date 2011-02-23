@@ -1,5 +1,6 @@
 body{
-	background-color: #D1EDCE;
+	background-color: #EEEEEE;
+	/**background-color: #D8DBD8;**/
 }
 .banner{
 	text-align: right;
@@ -18,4 +19,78 @@ body{
     margin-left: 15px;
     font-size: 0.8em;
     color: #505050
+}
+
+/** COntainer de poll **/
+.listePolls {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0 50px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-box-shadow: 0 2px 0 #BBBBBB;
+}
+
+
+/** Poll **/
+
+.polls {
+    margin-bottom: 30px;
+}
+
+
+.poll {
+    width: 70%;
+    clear: both;
+}
+
+.poll .poll-title {
+    margin: 0;
+}
+
+.poll .poll-title a {
+    font-size: 26px;
+    color: #15B2EC;
+    text-decoration: none;
+}
+
+.poll .poll-metadata {
+    color: #02376E;
+    display: block;
+    font-size: 70%;
+    display: inline-block;
+}
+
+.poll .poll-author {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.poll .poll-metadata a {
+    color: #9FA85D;
+}
+
+.poll .poll-content {
+    position: relative;
+    background: #EFEFEF;
+    padding: 10px;
+    margin: 10px 0 50px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-box-shadow: 0 2px 0 #BBBBBB;
+}
+
+.poll .about {
+    text-indent: -999em;
+    display: block;
+    width: 0;
+    height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #fff;
+	border-top: 0;
+	position: absolute;
+	top: -6px;
+	left: 24px;
 }

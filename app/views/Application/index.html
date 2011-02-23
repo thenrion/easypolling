@@ -1,69 +1,41 @@
 #{extends 'main.html' /}
 #{set title:'Pollings' /}
 
-<table>
+<table style="width: 100%;">
 
 	<tr>
-		<td>
-		<table style="width: 100%;">
-			<tr>
-				<td colspan="2"><a href="createpoll">Create new poll</a></td>
+		<td colspan="2"><a href="createpoll">Create new poll</a></td>
 			</tr>
+
+    <tr>
+        <br/>
+        <td>
+            <table style="width: 100%;">
 			<tr>
-				<td style="width: 20%">
-				<div style="border: 1px solid blue">&{'polls.recent.label'}<br />
-				<ul>
-                    #{list items:polls, as:'poll'}
-                        <li><a href="/?poll=2453">${poll.question}</a><br/>
-                            <a class="chart-link" href="@{Application.showChart(poll.id)}">&{'poll.chart.show.label'}</a></li>
-                    #{/list}
+
+				<td style="width: 100%">
+
+                    <div  class='listePolls'>&{'polls.recent.label'}<br />
+                    #{recentsPolls polls:polls /}
+
 
                     #{if polls && polls.size() != totalPollCount}
                         <li><a href="#" onclick="alert('Provoque l affichage de tous les sondages??')">...</a></li>
                     #{/if}
-				</ul>
+
 				</div>
-				</td>
-				<td style="width: 80%">
-				<form method="post" action="vote">
-				<table class="polling">
-					<tr class="header">
-						<td colspan="2">Polling 1</td>
-					</tr>
-					<tr class="question">
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Cras vel lectus sit amet purus varius suscipit. Sed volutpat odio
-						vel ante venenatis imperdiet. Proin magna dolor, condimentum nec
-						tempus id, ullamcorper sit amet nibh. Morbi vestibulum ultricies
-						nisl, id condimentum metus eleifend vel. Duis eget libero eu leo
-						suscipit hendrerit?</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="rep_id" value="0" /> Neque
-						porro quisquam est qui dolorem ipsum quia dolor sit amet,
-						consectetur, adipisci velit</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="rep_id" value="1" />
-						Suspendisse potenti. Phasellus laoreet, sapien.</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="rep_id" value="2" /> Sed ut
-						ligula non risus imperdiet accumsan vel in leo.</td>
-					</tr>
-					<tr>
-						<td><input type="checkbox" name="rep_id" value="3" /> Morbi
-						at nisl in est consectetur pulvinar eget at tellus.</td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Validate" name="validate"/></td>
-					</tr>
-				</table>
-				</form>
+
 				</td>
 			</tr>
 		</table>
 		<br />
+
+
+
+
+
+
 		</td>
+
 	</tr>
 </table>

@@ -24,6 +24,7 @@ User(David):
     fullname: David Renoux
 
 Poll(Poll_color):
+    title: Color
     question: What is your favorite color?
     multipleChoice: false
     author: Alexis
@@ -69,6 +70,7 @@ Answer(Poll_color_ans5):
     selected: true
 
 Poll(Poll_prog_languages):
+    title: Programming languages
     question: What is your favorite programmation language?
     multipleChoice: false
     author: Herve
@@ -89,6 +91,7 @@ Proposition(Poll_prog_languages_groovy):
     poll: Poll_prog_languages
 
 Poll(Poll_car):
+    title: Favorite Cars
     question: What is your favorite car?
     multipleChoice: false
     author: Alexis
@@ -105,6 +108,7 @@ Proposition(Poll_car_vw):
     poll: Poll_car
 
 Poll(Poll_film):
+    title: Horror Movies
     question: What is your favorite horror film?
     multipleChoice: false
     author: Jean-Christophe
