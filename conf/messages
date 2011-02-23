@@ -1,9 +1,7 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
-secure.username=Your email:
-secure.password=Your password:
-secure.signin=Log in now
 polls.recent.label=Recent polls
 poll.chart.show.label=Chart
 poll.chart.noanswer.label=No answer for this poll
+security.signup=Signup

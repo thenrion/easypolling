@@ -3,11 +3,13 @@
 # ~~~~
 
 # Registration/Authentication
-GET		/subscribe														Application.subscribe
-POST	/subscribe														Application.register
-GET		/login															Secure.login
+GET		/signup															Application.signup
+POST	/signup															Application.register
+GET		/login															Application.login
 POST	/login															Application.authenticate
-GET		/subscribe/{uuid}												Application.confirmRegistration
+GET		/logout															Application.logout
+GET		/signup/{uuid}													Application.confirmRegistration
+GET		/confirmation/{uuid}											Application.resendConfirmation
 
 # Home page
 GET     /                                       Application.index
