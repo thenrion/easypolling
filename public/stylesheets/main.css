@@ -95,6 +95,11 @@ body{
 	left: 24px;
 }
 
+.error {
+	color: #CC0000;
+	font-weight: bold;
+}
+
 div.error {
 	background: #CC0000;
 	color: #fff;
