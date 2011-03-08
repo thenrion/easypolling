@@ -10,6 +10,7 @@ POST	/login															Application.authenticate
 GET		/logout															Application.logout
 GET		/signup/{uuid}													Application.confirmRegistration
 GET		/confirmation/{uuid}											Application.resendConfirmation
+GET     /captcha                                                        Application.captcha
 
 # Home page
 GET     /                                       Application.index

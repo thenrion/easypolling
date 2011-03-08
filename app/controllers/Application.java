@@ -6,10 +6,13 @@ import models.Poll;
 import models.User;
 import notifiers.Notifier;
 import play.Logger;
+import play.cache.Cache;
 import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
+import play.libs.Codec;
+import play.libs.Images;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -84,10 +87,24 @@ public class Application extends Controller {
     }
 
     public static void signup() {
-        render();
+        String randomID = Codec.UUID();
+        render(randomID);
     }
 
-    public static void register(@Required @Email String email, @Required @MinSize(5) String password, @Equals("password") String password2, @Required String name) {
+    public static void captcha(String id) {
+        Images.Captcha captcha = Images.captcha();
+        String code = captcha.getText("#15B2EC");
+        Cache.set(id, code, "10mn");
+        renderBinary(captcha);
+    }
+
+
+    public static void register(@Required @Email String email, @Required @MinSize(5) String password,
+                                @Equals("password") String password2, @Required String name, @Required String code,
+                                String randomID) {
+
+        validation.equals(code, Cache.get(randomID)).message("Invalid code. Please type it again");
+
         if (validation.hasErrors()) {
             validation.keep();
             params.flash();
@@ -104,6 +121,7 @@ public class Application extends Controller {
         try {
             if (Notifier.welcome(user)) {
                 flash.success("Your account is created. Please check your emails ...");
+                Cache.delete(randomID);
                 login();
             }
         } catch (Exception e) {
