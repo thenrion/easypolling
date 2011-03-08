@@ -122,7 +122,7 @@ public class Application extends Controller {
         notFoundIfNull(user);
         user.needConfirmation = null;
         user.save();
-        flash.success("Welcome %s !", user.fullname);
+        flash.success("Welcome %s ! You can now login.", user.fullname);
         login();
     }
 
