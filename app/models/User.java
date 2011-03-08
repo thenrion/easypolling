@@ -41,5 +41,9 @@ public class User extends Model {
     public static User findByRegistrationUUID(String uuid) {
         return find("needConfirmation", uuid).first();
     }
- 
+
+    @Override
+    public String toString() {
+        return fullname;
+    }
 }

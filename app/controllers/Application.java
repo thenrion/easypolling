@@ -25,12 +25,20 @@ public class Application extends Controller {
     /** count of recent polls displayed */
     private static final int RECENT_POLLS_DISPLAYED_COUNT = 3;
 
-        // ~~~~~~~~~~~~ @Before interceptors
+    // ~~~~~~~~~~~~ @Before interceptors
 
     @Before
     static void globals() {
         renderArgs.put("connected", connectedUser());
     }
+
+//    @Before(only = {"xxx"})
+//    static void checkSecure() {
+//        if (connectedUser() == null) {
+//            System.out.println("forbid");
+//            forbidden();
+//        }
+//    }
 	
     public static void index()
     {
@@ -86,6 +94,12 @@ public class Application extends Controller {
             flash.error("Please correct these errors !");
             signup();
         }
+        //does the email already exists?
+        if(User.findByEmail(email) != null) {
+            flash.error("Oops ... (the email already exists)");
+            signup();
+        }
+
         User user = new User(email, password, name).save();
         try {
             if (Notifier.welcome(user)) {

@@ -1,26 +1,26 @@
 User(Alexis):
     email: alexis.paris@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: Alexis Paris
 User(Herve):
     email: herve.roussel@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: Herve Roussel
 User(Jean-Christophe):
     email: jean-christophe.bernier@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: Jean-Christophe Bernier
 User(Thomas):
     email: thomas.henrion@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: Thomas Henrion
 User(Johann):
     email: johann.bernez@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: Johann Bernez
 User(David):
     email: david.renoux@ctg.com
-    password: secret
+    passwordHash: 5ebe2294ecd0e0f08eab7690d2a6ee69
     fullname: David Renoux
 
 Poll(Poll_color):

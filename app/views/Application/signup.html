@@ -1,24 +1,24 @@
 #{extends 'main.html' /}
 
-<h1 id="title">Signup</h1>
-<p class="light">
+<h1 id="title" class="poll-title">Signup</h1>
+<p  class="poll-date">
 	We will send you an email for confirmation
 </p>
 
-<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8">
+<form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8" class='listePolls'>
 	<p>
-		<label>Email</label>
+		<label >Email</label>
 		<input type="text" name="email" value="${flash.email}" id="email" />
 		<span class="error">#{error 'email' /}</span>
 	</p>
 	<p>
 		<label>Display name</label>
 		<input type="text" name="name" value="${flash.name}" id="name" />
-		<span class="error">#{error 'name' /}
+		<span class="error">#{error 'name' /}</span>
 	</p>
 	<p>
 		<label>Password</label>
-		<p class="light">
+		<p>
 			Enter your desired password twice. It must be at least 5 characters.
 		</p>
 		<div>
