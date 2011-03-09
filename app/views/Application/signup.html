@@ -1,25 +1,25 @@
 #{extends 'main.html' /}
 
-<h1 id="title" class="poll-title">Signup</h1>
+<h1 id="title" class="poll-title">&{'signup.title'}</h1>
 <p  class="poll-date">
-	We will send you an email for confirmation
+	&{'signup.emailconfirmation'}
 </p>
 
 <form id="signup" action="@{Application.register}" method="POST" accept-charset="utf-8" class='listePolls'>
 	<p>
-		<label >Email</label>
+		<label >&{'signup.email'}</label>
 		<input type="text" name="email" value="${flash.email}" id="email" />
 		<span class="error">#{error 'email' /}</span>
 	</p>
 	<p>
-		<label>Display name</label>
+		<label>&{'signup.displayname'}</label>
 		<input type="text" name="name" value="${flash.name}" id="name" />
 		<span class="error">#{error 'name' /}</span>
 	</p>
 	<p>
-		<label>Password</label>
+		<label>&{'signup.password'}</label>
 		<p>
-			Enter your desired password twice. It must be at least 5 characters.
+			&{'signup.passwordcomment'}
 		</p>
 		<div>
 			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
@@ -29,13 +29,13 @@
 		</div>
 	</p>
     <p>
-        <label for="code">Please type the code below: </label>
+        <label for="code">&{'signup.captchacomment'}</label>
         <img src="@{Application.captcha(randomID)}" />
         <br />
         <input type="text" name="code" id="code" size="18" value="" /> <span class="error">#{error 'code' /}</span>
         <input type="hidden" name="randomID" value="${randomID}" />
     </p>
 	<p class="buttons">
-		<input type="submit" value="Signup" id="signupButton" />
+		<input type="submit" value="&{'signup.button'}" id="signupButton" />
 	</p>	
 </form>

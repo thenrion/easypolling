@@ -1,23 +1,23 @@
 #{extends 'main.html' /}
 
-<h1 id="title">Login</h1>
+<h1 id="title">&{'login.title'}</h1>
 </p>
 <form id="login" action="@{Application.authenticate}" method="POST" accept-charset="utf-8"  class='listePolls'>
 	<p>
-		<label>Email</label>
+		<label>&{'login.email'}</label>
 		<input type="text" name="email" value="${flash.email}" id="email" />
 	</p>
 	<p>
-		<label>Password</label>
+		<label>&{'login.password'}</label>
 		<input type="password" name="password" value="" id="password" />
 	</p>
 	<p>
-		<input type="submit" value="Login" id="loginButton" />
+		<input type="submit" value="&{'login.button'}" id="loginButton" />
 	</p>
 </form>
 
 #{if flash.notconfirmed}
 	<p>
-		<a href="@{Application.resendConfirmation(flash.notconfirmed)}">Resend a confirmation email</a>
+		<a href="@{Application.resendConfirmation(flash.notconfirmed)}">&{'login.resend'}</a>
 	</p>
 #{/if}

@@ -4,4 +4,22 @@
 polls.recent.label=Recent polls
 poll.chart.show.label=Chart
 poll.chart.noanswer.label=No answer for this poll
+#security
 security.signup=Signup
+security.login=Log in
+security.logout=Log out
+#signup
+signup.title=Signup
+signup.emailconfirmation=We will send you an email for confirmation
+signup.email=Email
+signup.displayname=Display name
+signup.password=Password
+signup.passwordcomment=Enter your desired password twice. It must be at least 5 characters.
+signup.captchacomment=Please type the code below:
+signup.button=Signup
+#login
+login.title=Login
+login.email=Email
+login.password=Password
+login.button=Login
+login.resend=Resend a confirmation email

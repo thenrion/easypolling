@@ -4,4 +4,22 @@
 polls.recent.label= Sondages récents
 poll.chart.show.label= Résultats
 poll.chart.noanswer.label=Il n'existe pas de vote pour ce sondage
-security.signup=Connexion
+#securite
+security.signup=Enregistrement
+security.login=Connexion
+security.logout=Deconnexion
+#enregistrement
+signup.title=Enregistrement
+signup.emailconfirmation=Un email de confirmation va vous être envoyé
+signup.email=Email
+signup.displayname=Nom affiché
+signup.password=Mot de passe
+signup.passwordcomment=Entrer son mot de passe deux fois. Il doit comporter au moins 5 caractères.
+signup.captchacomment=Merci de saisir le code ci-dessous:
+signup.button=S'enregistrer
+#login
+login.title=Authentification
+login.email=Email
+login.password=Password
+login.button=S'authentifier
+login.resend=Envoyer à nouveau l'email de confirmation
